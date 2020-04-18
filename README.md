@@ -20,7 +20,7 @@
 ## Документация
 
  После установки можно перейти в документацию по ссылку http://localhost/docs (Доступна только в режиме **development**)
- Генерация токена - Bearer Token = `md5('secret' . date('Ymd'))` https://github.com/sudo00/pointsApi/blob/master/app/models/User.php#33
+ Генерация токена - Bearer Token = `md5('secret' . date('Ymd'))` https://github.com/sudo00/pointsApi/blob/master/app/models/User.php#L33
 
 
 ## Сброс кэша
