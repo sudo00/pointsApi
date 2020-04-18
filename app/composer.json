@@ -1,0 +1,17 @@
+{
+  "name": "points",
+  "description": "api",
+  "type": "project",
+  "require": {
+    "php": ">=7.1.0",
+    "yiisoft/yii2": "~2.0.15",
+    "yiisoft/yii2-httpclient": "^2.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "*",
+    "genxoft/yii2-oas3": "*",
+    "codeception/codeception": "^3.1",
+    "codeception/c3": "*",
+    "flow/jsonpath": "*"
+  }
+}

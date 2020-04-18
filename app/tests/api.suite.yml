@@ -1,0 +1,9 @@
+class_name: ApiTester
+modules:
+    enabled:
+        - REST:
+              url: http://localhost/v1/
+              depends: Yii2
+        - \Helper\SmokeApi
+    config:
+        - Yii2

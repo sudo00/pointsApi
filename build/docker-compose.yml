@@ -1,0 +1,50 @@
+version: '3'
+
+networks:
+  default:
+    driver: bridge
+
+services:
+  app:
+    build: 
+      context: ../
+      dockerfile: ./build/Dockerfile
+    ports: 
+      - "80:80"
+    working_dir: /var/www/app
+    container_name: "pointapp"
+    environment:
+        STAGE: development
+        MYSQL_DB: "points"
+        MYSQL_USER: "root"
+        MYSQL_PASSWORD: "root"
+        MYSQL_HOST: "db"
+        MYSQL_PORT: 3306
+        MEMCACHED_DATA_ADDRESS: memcached
+        MEMCACHED_DATA_PORT: 11211
+    networks: 
+      - default
+    depends_on: 
+      - db    
+    # volumes:
+    #   - "../app:/var/www/app"
+    #   - "./conf/nginx:/etc/nginx/sites-available"  
+
+  memcached:
+      image: memcached:1.4
+      networks: 
+        - default
+      ports:
+        - "11211:11211"
+
+  db:
+    image: mysql:latest
+    networks: 
+      - default
+    ports:
+      - "3336:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: points
+    volumes:
+      - "./database:/var/lib/mysql"
